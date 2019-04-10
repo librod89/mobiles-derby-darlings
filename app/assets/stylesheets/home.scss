@@ -1,0 +1,74 @@
+#home {
+  nav {
+    width: 100%;
+    color: #FFFFFF;
+    background-color: black;
+
+    .nav-link {
+      color: white;
+    }
+  } 
+
+  .text-align-center {
+    text-align: center;
+  }
+
+  .background-pic-left {
+    background-image: url('logo.jpg');
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-size: contain;
+  }
+
+  .background-pic-right {
+    background-image: url('bout.jpg');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: contain;
+  }
+
+  .logo-pic {
+    img {
+      width: 40%;
+    }
+  }
+
+  .wftda {
+    margin-left: 15px;
+  }
+
+  .btn-images {
+    justify-content: center;
+
+    .schedule, .join, .about {
+      display: inline-block;
+      margin-right: 25px;
+
+      h2 {
+        color: white;
+        position: relative;
+        z-index: 2;
+        bottom: -140px;
+        cursor: pointer;
+      }
+    }
+
+    .schedule h2 {
+      right: -60px;
+    }
+
+    .join h2 {
+      right: -140px;
+    }
+
+    .about h2 {
+      right: -90px;
+    }
+
+    input {
+      cursor: pointer;
+      height: 200px;
+      filter: brightness(50%);
+    }
+  }
+}
