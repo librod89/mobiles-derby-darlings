@@ -5,7 +5,7 @@ ruby '2.4.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
-gem 'bootstrap-sass', '3.3.5.1'
+gem "bootstrap-sass", ">= 3.4.1"
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg'
