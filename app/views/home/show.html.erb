@@ -11,13 +11,26 @@
           <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Tickets</a>
+          <a class="nav-link" v-on:click="scheduleBtnClick">Schedule</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sponsor</a>
+          <a class="nav-link" v-on:click="joinBtnClick">Join</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Shop</a>
+          <a class="nav-link" v-on:click="aboutBtnClick">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:info@mobilesderbydarlings.com">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sponsor
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" v-on:click="ourSponsorsClick">Our Sponsors</a>
+            <a class="dropdown-item" v-on:click="sponsorshipInfoClick">Sponsorship Info</a>
+            <a class="dropdown-item" href="https://www.paypal.me/MobileDerbyDarling?fbclid=IwAR1CdQtlJDdLl8TGkJnLJXhfORwjub1liWNxh6VflPPWHTh3hAiXKkf-xNg" target="_blank">Donate</a>
+          </div>
         </li>
       </ul>
     </div>
@@ -59,38 +72,138 @@
         </div>
       </div>
     </div>
+
+    <div class="merch">
+      <h1 class="decorated"><span>Merch</span></h1>
+      <div class="col-3 offset-3">
+        <img id="merch-shirt" src="<%= asset_path('merchshirt.jpg') %>">
+        <div class="row">
+          <div class="col-6">MDD Tank</div>
+          <div class="col-6 pull-right"><strong>$20.00</strong></div>
+        </div>
+      </div>
+    </div>
   </template>
 
   <template v-if="showSchedulePage">
     <h1 class="decorated"><span>Upcoming Events</span></h1>
     <ul class="schedule list-unstyled">
       <li><a href="https://www.facebook.com/events/366973840768711/">Saturday April 27, 2019 &mdash; MDD Mashup at Bayou La Batre Community Center at 3pm</a></li>
-      <li>Saturday May 25, 2019 &mdash; MDD vs Gulf Coast Roller Girls</li>
+      <li>Saturday May 18, 2019 &mdash; MDD vs Gulf Coast Roller Girls in Milton, FL</li>
       <li>Saturday June 15, 2019 &mdash; MDD vs Miami <em>(away)</em></li>
+      <li>Saturday August 3, 2019 &mdash; MDD vs Dothan <em>(away)</em></li>
+      <li>Saturday Sept 21, 2019 &mdash; MDD vs Gulf Coast Roller Girls <em>(away)</em></li>
     </ul>
   </template>
 
   <template v-if="showJoinPage">
     <h1 class="decorated"><span>How to Join Us</span></h1>
     <p class="join">
-      Athletic ladies and gentlemen of the Mobile, AL, community, one and all! Whether skating hard and turning left is your cup of tea, or you simply like telling people what to do (referees!), there's a place for you here at MDD. You must be 18+ to skate, 19+ to play the game!
+      Mobile's Derby Darlings is our name, and women's flat track roller derby is the name of our game--we play it with style!   Athleticism and community outreach is our thing, so if getting fit, playing hard, and giving back to your city sounds like a grand old time, come try us on for size!
       <br /><br />
-      Whether you're a seasoned pro or a complete newbie, you are welcome to come to any of our open skate sessions held year round on Mondays and Thursdays 7pm - 9pm at Dreamland Skate Center. Make sure to wear comfortable athletic clothing and bring any gear that you own: skates, helmet, knee pads, elbow pads, wrist guards, and mouth guard.
+      Want to be a 'Darling', but not interested in skating?  We have room for you too!  Our associate membership program gets you involved, minus the sweat!  Our sport requires a lot of help from awesome people just like you, so don't hesitate to ask how to get in on the action without getting out on the track.
+      <br /><br />
+      We are also looking to increase the might of our blossoming TEAM ZEBRA!  That means you, boys - the Derby Darlings need YOU (and your friends).  Referees and volunteers make the derby world go 'round. You must be 18+ to skate, 19+ to play the game!
+      <br /><br />
+      Whether you're a seasoned pro or a complete newbie, you are welcome to come to any of our open skate sessions held year round on Mondays and Thursdays 7pm - 9pm at <a href="https://www.google.com/maps/place/5672+Three+Notch+Rd,+Mobile,+AL+36619/@30.5896733,-88.1767886,17z/data=!3m1!4b1!4m5!3m4!1s0x889bb4b6cc00d751:0x8af5f6de0ad2d742!8m2!3d30.5896733!4d-88.1745946" target="_blank">Dreamland Skate Center</a>. 
+      Make sure to wear comfortable athletic clothing and bring any gear that you own: skates, helmet, knee pads, elbow pads, wrist guards, and mouth guard.
       If you don't have any gear, no worries! We will let you borrow all the gear you need to get you skating safely. Your first two open skate sessions are free so what are you waiting for?
+      <br /><br />
+      Contact us on <a href="https://www.facebook.com/mobilesderbydarlings/">Facebook</a> to let us know you're coming!
     </p>
   </template>
 
   <template v-if="showAboutPage">
     <h1 class="decorated"><span>About Us</span></h1>
     <p class="about">
-      Mobile's Derby Darlings is our name, and women's flat track roller derby is the name of our game--we play it with style!   Athleticism and community outreach is our thing, so if getting fit, playing hard, and giving back to your city sounds like a grand old time, come try us on for size!
+      Mobile Derby Darlings was founded in 2011 and stands as Mobile's only all-female, skater-operated roller derby team committed to athleticism and sportswomanship, raising awareness about and furthering the sport of roller derby.
+      The team is composed of strong, diverse, and independent women from different locations and of varying skill levels.
       <br />
-      Want to be a 'Darling', but not interested in skating?  We have room for you too!  Our associate membership program gets you involved, minus the sweat!  Our sport requires a lot of help from awesome people just like you, so don't hesitate to ask how to get in on the action without getting out on the track.
-      <br />
-      We are also looking to increase the might of our blossoming TEAM ZEBRA!  That means you, boys - the Derby Darlings need YOU (and your friends).  Referees and volunteers make the derby world go 'round.
+      MDD is committed to developing athletes, promoting the physical and mental strength and independent spirit of amateur female athletes, while competing in interleague bouting. In doing such, they believe all people are equal and important and should be treated as such.
+      The skaters work tirelessly, on the track and off, to represent the team, whether at home or on the road. They demonstrate positive role models for women and act as contributing members of their local community, volunteering and fundraising, while displaying values such as 
+      empowerment, friendship, discipline, pride, dedication, a "for the skater, by the skater" philosophy and competing at the highest levels of gameplay throughout the league.
       <br /><br />
-      To schedule interleague bouts, please contact us at feliciaelliott@rocketmail.com
+      To schedule interleague bouts, please <a href="mailto:feliciaelliott@rocketmail.com">contact us</a>
     </p>
+  </template>
+
+  <template v-if="showOurSponsersPage">
+    <h1 class="decorated"><span>Our Sponsors</span></h1>
+    <div class="our-sponsors row">
+      <div class="col-3 offset-3">
+        <a href="http://theodoreveterinaryhospital.com/" target="_blank"><img src="<%= asset_path('theodorevethospital.jpg') %>"></a>
+      </div>
+    </div>
+  </template>
+
+  <template v-if="showSponsorshipInfoPage">
+    <div class="sponsorship-info">
+      MDD is committed to growing roller derby as a competitive sport, through generating competent skaters and inspiring strength, confidence, camaraderie, independence and acceptance, regardless of skill level, race or gender identity or expression, while maintaining a positive standing within the community.
+      <h2 class="decorated">Packages</h2>
+      <p>Any monies given under $50 is considered a donation and will get a mention in our bout programs</p>
+      <ul class="list-unstyled">
+        <li>
+          <h4><strong>$50</strong></h4>
+          <ul>
+            <li>2 free tickets to each of our home games (more tickets can be sold at a discount)</li>
+            <li>VIP seating</li>
+            <li>Bumper Sticker</li>
+            <li>2 business call-outs per home game</li>
+            <li>Quarter-page business logo in home game program</li>
+          </ul>
+        </li>
+        <li>
+          <h4><strong>$75</strong></h4>
+          <ul>
+            <li>Everything in previous package</li>
+            <li>Signed MDD T-shirt</li>
+            <li>2 more business call-outs per home game (4 total per home game)</li>
+            <li>Half-page business logo in home game program</li>
+          </ul>
+        </li>
+        <li>
+          <h4><strong>$100</strong></h4>
+          <ul>
+            <li>Everything in previous package</li>
+            <li>2 more tickets per home game (4 total per home game)</li>
+            <li>2 more business call-outs per home game (6 total per home game)</li>
+            <li>Full page business logo in home game program</li>
+            <li>Spot on our banner (used in every parade and event we attend)</li>
+          </ul>
+        </li>
+        <li>
+          <h4><strong>$200 &mdash; Sponsor a Darling</strong></h4>
+          <ul>
+            <li>Everything in previous package</li>
+            <li>2 more business call-outs per home game (8 total per home game)</li>
+            <li>Business info printed on one Darling's jersey</li>
+          </ul>
+        </li>
+        <li>
+          <h4><strong>$500 &mdash; Banner Time</strong></h4>
+          <ul>
+            <li>Everything in previous package</li>
+            <li>2 more business call-outs per home game (10 total per home game)</li>
+            <li>Personalized banner of your business (hung up at every home game and event we attend)</li>
+            <li>A small MDD banner for your business</li>
+          </ul>
+        </li>
+        <li>
+          <h4><strong>$1000 &mdash; Sponsor the team</strong></h4>
+          <ul>
+            <li>Everything in previous package</li>
+            <li>Business logo/info on the whole team's jerseys</li>
+          </ul>
+        </li>
+        <li>
+          <h4><strong>$2500 &mdash; Gold Member</strong></h4>
+          <ul>
+            <li>Everything in previous package</li>
+            <li>We hand out flyers of your information at every parade, event, etc that MDD attends</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </template>
 
   <hr />

@@ -6,7 +6,9 @@ $(function() {
         showHomePage: true,
         showAboutPage: false,
         showJoinPage: false,
-        showSchedulePage: false
+        showSchedulePage: false,
+        showOurSponsersPage: false,
+        showSponsorshipInfoPage: false,
       },
       methods: {
         aboutBtnClick: function(event) {
@@ -24,9 +26,23 @@ $(function() {
           this.showJoinPage = true;
           window.location.hash = '#join'
         },
+        ourSponsorsClick: function() {
+          this.setAllPagesToFalse();
+          this.showOurSponsersPage = true;
+          window.location.hash = '#our-sponsors'
+        },
+        sponsorshipInfoClick: function() {
+          this.setAllPagesToFalse();
+          this.showSponsorshipInfoPage = true;
+          window.location.hash = '#sponsorship-info'
+        },
         setAllPagesToFalse: function() {
           this.showHomePage = false;
+          this.showJoinPage = false;
           this.showAboutPage = false;
+          this.showSchedulePage = false;
+          this.showOurSponsersPage = false;
+          this.showSponsorshipInfoPage = false;
         }
       },
       created: function() {
@@ -37,6 +53,10 @@ $(function() {
           this.aboutBtnClick();
         } else if (hash == '#schedule') {
           this.scheduleBtnClick();
+        } else if (hash == '#our-sponsors') {
+          this.ourSponsorsClick();
+        } else if (hash == '#sponsorship-info') {
+          this.sponsorshipInfoClick();
         }
       }
     });
