@@ -65,10 +65,23 @@
       right: -90px;
     }
 
-    input {
+    img {
       cursor: pointer;
       height: 200px;
       filter: brightness(50%);
+    }
+  }
+
+  .news {
+    margin-top: 100px;
+
+    h1 {
+      margin-bottom: 50px;
+    }
+
+    img {
+      width: 450px;
+      height: 350px;
     }
   }
 }

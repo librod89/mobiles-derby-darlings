@@ -8,10 +8,7 @@
     <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tickets</a>
+          <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Tickets</a>
@@ -28,22 +25,73 @@
 
   <br />
 
-  <div class="row btn-images">
-    <div class="schedule">
-      <h2>SCHEDULE</h2>
-      <input type="image" id="schedule-btn" src="<%= asset_path('bout2.jpg') %>" />
+  <template v-if="showHomePage">
+    <div class="row btn-images">
+      <div class="schedule" v-on:click="scheduleBtnClick">
+        <h2>SCHEDULE</h2>
+        <img id="schedule-btn" src="<%= asset_path('bout2.jpg') %>" />
+      </div>
+
+      <div class="join" v-on:click="joinBtnClick">
+        <h2>JOIN</h2>
+        <img id="join-btn" src="<%= asset_path('practice.jpg') %>" />
+      </div>
+
+      <div class="about" v-on:click="aboutBtnClick">
+        <h2>ABOUT</h2>
+        <img id="about-btn" src="<%= asset_path('about.jpg') %>" />
+      </div>
     </div>
 
-    <div class="join">
-      <h2>JOIN</h2>
-      <input type="image" id="join-btn" src="<%= asset_path('practice.jpg') %>" />
-    </div>
+    <div class="news">
+      <h1 class="decorated"><span>News</span></h1>
 
-    <div class="about">
-      <h2>ABOUT</h2>
-      <input type="image" id="about-btn" src="<%= asset_path('about.jpg') %>" />
+      <div class="row">
+        <div class="col-3 offset-3">
+          <a href="https://soundcloud.com/2020podcast/a-business-minute-mobile-derby-darlings?fbclid=IwAR2D3WnRpn-gDlG5OJPDstqQJtsCR4BqYwWWwTgOBw1wwK1t8NxGMwNn6MI" target="_blank">
+            <img id="2020podcast" src="<%= asset_path('2020podcast.png') %>">
+            MDD was interviewed by 20/20 Podcast! Listen to <em>A Business Minute: Mobile Derby Darlings</em> by 20/20 Podcast 
+          </a>
+        </div>
+        <div class="col-3">
+          <img id="parade" src="<%= asset_path('parade.jpg') %>">
+          MDD had a blast skating in the Order of LaShe, Order of Venus, OOI, Order of Butterfly Maidens, and Dauphin Island Mardi Gras Parade!
+        </div>
+      </div>
     </div>
-  </div>
+  </template>
+
+  <template v-if="showSchedulePage">
+    <h1 class="decorated"><span>Upcoming Events</span></h1>
+    <ul class="schedule list-unstyled">
+      <li><a href="https://www.facebook.com/events/366973840768711/">Saturday April 27, 2019 &mdash; MDD Mashup at Bayou La Batre Community Center at 3pm</a></li>
+      <li>Saturday May 25, 2019 &mdash; MDD vs Gulf Coast Roller Girls</li>
+      <li>Saturday June 15, 2019 &mdash; MDD vs Miami <em>(away)</em></li>
+    </ul>
+  </template>
+
+  <template v-if="showJoinPage">
+    <h1 class="decorated"><span>How to Join Us</span></h1>
+    <p class="join">
+      Athletic ladies and gentlemen of the Mobile, AL, community, one and all! Whether skating hard and turning left is your cup of tea, or you simply like telling people what to do (referees!), there's a place for you here at MDD. You must be 18+ to skate, 19+ to play the game!
+      <br /><br />
+      Whether you're a seasoned pro or a complete newbie, you are welcome to come to any of our open skate sessions held year round on Mondays and Thursdays 7pm - 9pm at Dreamland Skate Center. Make sure to wear comfortable athletic clothing and bring any gear that you own: skates, helmet, knee pads, elbow pads, wrist guards, and mouth guard.
+      If you don't have any gear, no worries! We will let you borrow all the gear you need to get you skating safely. Your first two open skate sessions are free so what are you waiting for?
+    </p>
+  </template>
+
+  <template v-if="showAboutPage">
+    <h1 class="decorated"><span>About Us</span></h1>
+    <p class="about">
+      Mobile's Derby Darlings is our name, and women's flat track roller derby is the name of our game--we play it with style!   Athleticism and community outreach is our thing, so if getting fit, playing hard, and giving back to your city sounds like a grand old time, come try us on for size!
+      <br />
+      Want to be a 'Darling', but not interested in skating?  We have room for you too!  Our associate membership program gets you involved, minus the sweat!  Our sport requires a lot of help from awesome people just like you, so don't hesitate to ask how to get in on the action without getting out on the track.
+      <br />
+      We are also looking to increase the might of our blossoming TEAM ZEBRA!  That means you, boys - the Derby Darlings need YOU (and your friends).  Referees and volunteers make the derby world go 'round.
+      <br /><br />
+      To schedule interleague bouts, please contact us at feliciaelliott@rocketmail.com
+    </p>
+  </template>
 
   <hr />
   <p class="text-align-center">
