@@ -4,8 +4,11 @@
       <img src="<%= asset_path('mardigras.jpg') %>" />
     </div>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-default">
-    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
@@ -60,13 +63,13 @@
       <h1 class="decorated"><span>News</span></h1>
 
       <div class="row">
-        <div class="col-3 offset-3">
+        <div class="col-3 inline-table">
           <a href="https://soundcloud.com/2020podcast/a-business-minute-mobile-derby-darlings?fbclid=IwAR2D3WnRpn-gDlG5OJPDstqQJtsCR4BqYwWWwTgOBw1wwK1t8NxGMwNn6MI" target="_blank">
             <img id="2020podcast" src="<%= asset_path('2020podcast.png') %>">
             MDD was interviewed by 20/20 Podcast! Listen to <em>A Business Minute: Mobile Derby Darlings</em> by 20/20 Podcast 
           </a>
         </div>
-        <div class="col-3">
+        <div class="col-3 inline-table">
           <img id="parade" src="<%= asset_path('parade.jpg') %>">
           MDD had a blast skating in the Order of LaShe, Order of Venus, OOI, Order of Butterfly Maidens, and Dauphin Island Mardi Gras Parade!
         </div>
@@ -75,11 +78,13 @@
 
     <div class="merch">
       <h1 class="decorated"><span>Merch</span></h1>
-      <div class="col-3 offset-3">
-        <img id="merch-shirt" src="<%= asset_path('merchshirt.jpg') %>">
-        <div class="row">
-          <div class="col-6">MDD Tank</div>
-          <div class="col-6 pull-right"><strong>$20.00</strong></div>
+      <div class="row">
+        <div class="col-3 inline-table">
+          <img id="merch-shirt" src="<%= asset_path('merchshirt.jpg') %>">
+          <div class="row">
+            <div class="col-6">MDD Tank</div>
+            <div class="col-6 pull-right"><strong>$20.00</strong></div>
+          </div>
         </div>
       </div>
     </div>

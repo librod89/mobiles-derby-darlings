@@ -13,6 +13,14 @@
     }
   } 
 
+  .navbar-nav {
+    align-items: center;
+  }
+
+  .inline-table {
+    display: inline-table;
+  }
+
   .text-align-center {
     text-align: center;
   }
@@ -87,6 +95,10 @@
       width: 450px;
       height: 350px;
     }
+
+    .row {
+      justify-content: center;
+    }
   }
 
   .merch {
@@ -98,6 +110,10 @@
 
     img {
       width: 300px;
+    }
+
+    .row {
+      justify-content: center;
     }
   }
 }
