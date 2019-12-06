@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '2.6.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
-gem "bootstrap-sass", ">= 3.4.1"
+gem 'bootstrap-sass', '>= 3.4.1'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem "loofah", ">= 2.3.1"
-gem "nokogiri", ">= 1.10.4"
-gem "puma", ">= 3.12.2"
+gem 'loofah', '>= 2.3.1'
+gem 'mini_racer'
+gem 'nokogiri', '>= 1.10.4'
+gem 'puma', '>= 3.12.2'
 gem 'rails', '~> 5.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
